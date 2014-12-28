@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="/home/bmericc/phonegap-wordpress" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="/home/bmericc/phonegap-wordpress" 
+version="1.0.0" 
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:gap="http://phonegap.com/ns/1.0"
+id        = "info.bahri.wordpress"
+>
     <name>Phonegap Wordpress</name>
     <description>
         Phonegap Wordpress  sample application that responds to the deviceready event.
