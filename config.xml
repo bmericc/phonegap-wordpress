@@ -2,7 +2,7 @@
 <widget id="/home/bmericc/phonegap-wordpress" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Phonegap Wordpress</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Phonegap Wordpress  sample application that responds to the deviceready event.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
