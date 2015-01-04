@@ -1,3 +1,93 @@
+var postid = getQueryVariable("id");
+
+$( document ).on( "pageshow", "#postIndex", function() {
+
+	var url = "http://www.timsah.org/api/get_recent_posts/?callback=?";
+
+		$.ajax({
+		   type: 'GET',
+		    url: url,
+		    async: false,
+		    jsonpCallback: 'callback',
+		    contentType: "application/json",
+		    dataType: 'jsonp',
+		    success: function(json) {
+		    	if(json.status=="ok") {
+					posts(json);
+		    	}
+		    	else {
+		    		console.log("error");
+		    	}
+		       
+		    },
+		    error: function(e) {
+		       console.log(e.message);
+		    }
+		});
+	 
+});
+
+
+$( document ).on( "pageshow", "#postPage", function() {
+                
+    var postid = getQueryVariable("id");
+    var url = "http://www.timsah.org/api/get_post/?post_id="+postid+"&callback=?";
+
+    $.ajax({
+       type: 'GET',
+        url: url,
+        async: false,
+        jsonpCallback: 'callback',
+        contentType: "application/json",
+        dataType: 'jsonp',
+        success: function(json) {
+            if(json.status=="ok") {
+                post(json);
+            }
+            else {
+                console.log("error");
+            }
+           
+        },
+        error: function(e) {
+           console.log(e.message);
+        }
+    });
+     
+});
+
+function redirectPage() { window.location = linkLocation; }
+
+$(document).ready(function(){
+	
+	$('a').click(function(event) {
+    if (this.href == "" || this.href == null) {
+      event.preventDefault();
+      return;
+    }
+    if ((this.href.indexOf("#") == -1) && (this.href.indexOf("mailto:") == -1) && (this.href.indexOf("javascript:") == -1) && (this.target != "_blank") && (this.href.indexOf("tel:"))) {
+      event.preventDefault();
+      linkLocation = this.href;
+    }
+  	});
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() { document.addEventListener("backbutton", onBackKeyDown, false); }
+    function onBackKeyDown() { navigator.app.exitApp();}
+				
+});
+
+function getQueryVariable(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+           var pair = vars[i].split("=");
+           if(pair[0] == variable){return pair[1];}
+   }
+   return(false);
+}
+
 document.addEventListener('deviceready', function() {
  	setTimeout(function() { navigator.splashscreen.hide(); }, 3000);
 });

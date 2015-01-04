@@ -12,55 +12,16 @@
 <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
 <script type="text/javascript" src="js/cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-
 </head>
 <body>
-	<script type="text/javascript">
-	$( document ).on( "pageshow", function() {
-
-		console.log("index");
-
-		var url = "http://www.timsah.org/api/get_recent_posts/?callback=?";
-
-			$.ajax({
-			   type: 'GET',
-			    url: url,
-			    async: false,
-			    jsonpCallback: 'callback',
-			    contentType: "application/json",
-			    dataType: 'jsonp',
-			    success: function(json) {
-			    	if(json.status=="ok") {
-						posts(json);
-			    	}
-			    	else {
-			    		console.log("error");
-			    	}
-			       
-			    },
-			    error: function(e) {
-			       console.log(e.message);
-			    }
-			});
-		 
-	});
-	</script>
 	<div data-role="page" id="postIndex" data-theme="b">
 	    <div data-role="header" data-position="fixed" data-theme="b">
 	        <h1>Timsah.org</h1>
 	    </div>
-
 	    <div data-role="main" data-role="content" class="ui-content" data-theme="b">
-	    	
-		        <ul data-role="listview" id="postsList" data-theme="a"  data-inset="true">                 
-		        </ul>
-	        
+	        <ul data-role="listview" id="postsList" data-theme="a"  data-inset="true">                 
+	        </ul>        
 	    </div>
-
 	</div> 
-
-	
-
-
 </body>
 </html>
