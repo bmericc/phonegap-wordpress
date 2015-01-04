@@ -1,6 +1,6 @@
 var postid = getQueryVariable("id");
 
-$( document ).on( "pageshow", "#postIndex", function() {
+$( document ).on( "pagebeforeshow", "#postIndex", function() {
 
 	var url = "http://www.timsah.org/api/get_recent_posts/?callback=?";
 
@@ -28,7 +28,7 @@ $( document ).on( "pageshow", "#postIndex", function() {
 });
 
 
-$( document ).on( "pageshow", "#postPage", function() {
+$( document ).on( "pagebeforeshow", "#postPage", function() {
                 
     var postid = getQueryVariable("id");
     var url = "http://www.timsah.org/api/get_post/?post_id="+postid+"&callback=?";
