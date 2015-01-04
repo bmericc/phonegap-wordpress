@@ -1,3 +1,17 @@
+var flag = false;	
+
+$(document).on('pagebeforechange', function () {
+    if(flag==false) {
+        $.mobile.loading( "show" );
+        flag=true;
+    }
+});
+
+$(document).on('pageshow', function () {
+	$.mobile.loading( "hide" );
+    flag=false;
+}); 
+
 var postid = getQueryVariable("id");
 
 $( document ).on( "pagebeforeshow", "#postIndex", function() {
